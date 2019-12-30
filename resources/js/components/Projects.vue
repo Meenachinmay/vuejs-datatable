@@ -5,7 +5,9 @@
                 <div class="card">
                     <div class="card-header">Vuejs Datatable</div>
                     <div class="card-body">
-                        <button class="float-right btn btn-sm btn-primary m-1">hello world</button>
+                        <div class="form-group">
+                            <input type="text" class="form-control" v-model="tableData.search" placeholder="Search table" @input="getUsers()">
+                        </div>
                         <datatable :columns="columns" :sortKey="sortKey" :sortOrders="sortOrders" @sort="sortBy">
                             <tbody>
                                 <tr v-for="user in users" :key="user.id">

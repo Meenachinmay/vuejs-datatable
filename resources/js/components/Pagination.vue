@@ -1,6 +1,6 @@
 <template>
     <nav class="pagination">
-        <span class="page-stats" style="padding: 5px;"> {{ pagination.from }} - {{ pagination.to }} of {{ pagination.total }}</span>
+        <span class="page-stats font-weight-bold" style="padding: 5px;"> {{ pagination.from }} - {{ pagination.to }} of {{ pagination.total }}</span>
 
         <button v-if="pagination.prevPageURL" class="btn btn-primary" @click="$emit('prev');">
             Prev

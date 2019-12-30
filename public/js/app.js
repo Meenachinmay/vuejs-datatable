@@ -1935,6 +1935,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -38136,16 +38138,23 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("nav", { staticClass: "pagination" }, [
-    _c("span", { staticClass: "page-stats", staticStyle: { padding: "5px" } }, [
-      _vm._v(
-        " " +
-          _vm._s(_vm.pagination.from) +
-          " - " +
-          _vm._s(_vm.pagination.to) +
-          " of " +
-          _vm._s(_vm.pagination.total)
-      )
-    ]),
+    _c(
+      "span",
+      {
+        staticClass: "page-stats font-weight-bold",
+        staticStyle: { padding: "5px" }
+      },
+      [
+        _vm._v(
+          " " +
+            _vm._s(_vm.pagination.from) +
+            " - " +
+            _vm._s(_vm.pagination.to) +
+            " of " +
+            _vm._s(_vm.pagination.total)
+        )
+      ]
+    ),
     _vm._v(" "),
     _vm.pagination.prevPageURL
       ? _c(
@@ -38220,11 +38229,34 @@ var render = function() {
             "div",
             { staticClass: "card-body" },
             [
-              _c(
-                "button",
-                { staticClass: "float-right btn btn-sm btn-primary m-1" },
-                [_vm._v("hello world")]
-              ),
+              _c("div", { staticClass: "form-group" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.tableData.search,
+                      expression: "tableData.search"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", placeholder: "Search table" },
+                  domProps: { value: _vm.tableData.search },
+                  on: {
+                    input: [
+                      function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.tableData, "search", $event.target.value)
+                      },
+                      function($event) {
+                        return _vm.getUsers()
+                      }
+                    ]
+                  }
+                })
+              ]),
               _vm._v(" "),
               _c(
                 "datatable",
