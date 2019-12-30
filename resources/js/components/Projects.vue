@@ -7,6 +7,12 @@
                     <div class="card-body">
                         <div class="form-group">
                             <input type="text" class="form-control" v-model="tableData.search" placeholder="Search table" @input="getUsers()">
+
+                            <select class="mt-2" v-model="tableData.length" @change="getUsers()">
+                                <option value="10" selected="selected">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                            </select>
                         </div>
                         <datatable :columns="columns" :sortKey="sortKey" :sortOrders="sortOrders" @sort="sortBy">
                             <tbody>
